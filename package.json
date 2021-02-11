@@ -6,12 +6,6 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "Kevin GRACIA-MOULIS",
-  "contributors": ["Charles DESGENETEZ", "Maxime REITER", "Thomas CANTA"],
-  "license": "ISC",
-  "dependencies": {
-    "nlp-js-tools-french": "^1.0.9",
-    "node-nlp": "^4.20.0",
-    "node-nlp-rn": "^3.5.2"
-  }
+  "author": "Charles DESGENETEZ",
+  "license": "ISC"
 }
