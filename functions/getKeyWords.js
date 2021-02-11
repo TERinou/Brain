@@ -59,20 +59,21 @@ module.exports = {
         return lemmatizedWords;
     },
     /**
-     * Extrait les mots clefs de la phrase
+     * Donne le mot clef de la phrase
      * @param phrase
-     * @returns Liste des mots clefs
+     * @returns mot clef
      */
-    getKeyWords: function (phrase){
+    getKeyWord: function (phrase){
         let keyWords = [];
 
         let posTaggedWords = this.getPosTag(phrase);
 
         posTaggedWords.forEach(function (item, index, array){
-            keyWords.push(item.word);
+            if(item.pos.includes("NOM")){
+                keyWords.push(item.word);
+            }
         });
 
-        //console.log("[+] " + keyWords);
-        return keyWords;
+        return keyWords.pop();
     }
 }

@@ -1,8 +1,8 @@
 const gkw = require('./functions/getKeyWords');
 
-//gkw.getKeyWords("La pomme est un fruit.");
+//console.log(gkw.getKeyWord("C'est quoi une chaise."));
 
 module.exports = gkw.getToken;
 module.exports = gkw.getPosTag;
 module.exports = gkw.getLemmas;
-module.exports = gkw.getKeyWords;
+module.exports = gkw.getKeyWord;
