@@ -72,7 +72,7 @@ module.exports = {
             keyWords.push(item.word);
         });
 
-        console.log("[+] " + keyWords);
+        //console.log("[+] " + keyWords);
         return keyWords;
     }
 }
