@@ -15,6 +15,7 @@ module.exports = {
 
         const tokenizedWords = nlpToolsFr.tokenized;
 
+        return tokenizedWords;
     },
     getPosTag: function (phrase){
         if (phrase == null)
@@ -23,6 +24,8 @@ module.exports = {
         const nlpToolsFr = new NlpjsTFr(phrase, config);
 
         const posTaggedWords = nlpToolsFr.posTagger();
+
+        return posTaggedWords;
     },
     getLemmas: function (phrase){
         if (phrase == null)
@@ -31,5 +34,7 @@ module.exports = {
         const nlpToolsFr = new NlpjsTFr(phrase, config);
 
         const lemmatizedWords = nlpToolsFr.lemmatizer();
+
+        return lemmatizedWords;
     }
 }
