@@ -6,5 +6,5 @@ module.exports = {
   getToken: gkw.getToken,
   getPosTag: gkw.getPosTag,
   getLemmas: gkw.getLemmas,
-  getKeyWork: gkw.getKeyWord
+  getKeyWork: gkw.getKeyWord,
 };
