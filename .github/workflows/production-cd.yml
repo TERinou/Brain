@@ -15,7 +15,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            cd /opt/TERinou/main/Brain/
+            cd /opt/TERinou/production/Brain/
             git pull
             npm install
             cd .. && pm2 restart ecosystem.config.js
