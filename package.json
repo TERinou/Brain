@@ -1,12 +1,13 @@
 {
   "name": "@terinou/brain",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Module de reconnaissance/interprétation. Bref, le cerveau du projet.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Kevin GRACIA-MOULIS",
+  "contributors": ["Charles DESGENETEZ", "Maxime REITER", "Thomas CANTA"],
   "license": "ISC",
   "dependencies": {
     "nlp-js-tools-french": "^1.0.9",
