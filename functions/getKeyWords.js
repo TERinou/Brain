@@ -59,7 +59,7 @@ module.exports = {
         return lemmatizedWords;
     },
     /**
-     * Donne le mot clef de la phrase
+     * Donne le mot clef de la phrase.
      * @param phrase
      * @returns mot clef
      */
