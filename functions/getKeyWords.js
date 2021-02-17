@@ -74,6 +74,12 @@ module.exports = {
             }
         });
 
-        return keyWords.pop();
+        let tag = this.getLemmas(keyWords.pop());
+        let res = "";
+        tag.forEach(function (item, index, array){
+            res = item.lemma;
+        })
+
+        return res;
     }
 }
