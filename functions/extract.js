@@ -37,8 +37,8 @@ module.exports = {
             let carac = " est ";
 
             if(X_Y.split(lieu)[1] != undefined){
-                let o = gkw.getKeyWord(X_Y.split(lieu)[0]);
-                let r = gkw.getKeyWord(X_Y.split(lieu)[1]);
+                let o = gkw.analyse(X_Y.split(lieu)[0]);
+                let r = gkw.analyse(X_Y.split(lieu)[1]);
                 var res = {
                     object : o,
                     typeRelation : "r_lieu",
@@ -46,8 +46,8 @@ module.exports = {
                 };
                 return res;
             }else if(X_Y.split(agent)[1] != undefined){
-                let o = gkw.getKeyWord(X_Y.split(agent)[0]);
-                let r = gkw.getKeyWord(X_Y.split(agent)[1]);
+                let o = gkw.analyse(X_Y.split(agent)[0]);
+                let r = gkw.analyse(X_Y.split(agent)[1]);
                 var res = {
                     object : o,
                     typeRelation : "r_agent-1",
@@ -55,8 +55,8 @@ module.exports = {
                 };
                 return res;
             }else if(X_Y.split(own)[1] != undefined){
-                let o = gkw.getKeyWord(X_Y.split(own)[0]);
-                let r = gkw.getKeyWord(X_Y.split(own)[1]);
+                let o = gkw.analyse(X_Y.split(own)[0]);
+                let r = gkw.analyse(X_Y.split(own)[1]);
                 var res = {
                     object : o,
                     typeRelation : "r_own",
@@ -64,8 +64,8 @@ module.exports = {
                 };
                 return res;
             }else if(X_Y.split(isA)[1] != undefined){
-                let o = gkw.getKeyWord(X_Y.split(isA)[0]);
-                let r = gkw.getKeyWord(X_Y.split(isA)[1]);
+                let o = gkw.analyse(X_Y.split(isA)[0]);
+                let r = gkw.analyse(X_Y.split(isA)[1]);
                 var res = {
                     object : o,
                     typeRelation : "r_isa",
@@ -73,8 +73,8 @@ module.exports = {
                 };
                 return res;
             }else if(X_Y.split(carac)[1] != undefined){
-                let o = gkw.getKeyWord(X_Y.split(carac)[0]);
-                let r = gkw.getKeyWord(X_Y.split(carac)[1]);
+                let o = gkw.analyse(X_Y.split(carac)[0]);
+                let r = gkw.analyse(X_Y.split(carac)[1]);
                 var res = {
                     object : o,
                     typeRelation : "r_carac",
