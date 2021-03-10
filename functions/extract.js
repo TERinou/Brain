@@ -1,10 +1,17 @@
-const NlpjsTFr = require('nlp-js-tools-french');
 const gkw = require('./getKeyWords');
 
-function check(phrase){
+function check(phrase) {
     if (phrase == null)
         phrase = "";
     return phrase;
+}
+
+function getRelationObject(relationStr, X_Y, relationType) {
+    return {
+        object: gkw.analyse(X_Y.split(relationStr)[0]),
+        typeRelation: relationType,
+        relation: gkw.analyse(X_Y.split(relationStr)[1])
+    };
 }
 
 /**
@@ -16,72 +23,37 @@ function check(phrase){
  *
  * Est-ce que XXX se trouve dans YYY ? (XXX est un objet, YYY est un lieu) #r_lieu
  *
- * Est-ce que XXX peut YYY ? (XXX est un objet, YYY est une action) #r_agent
+ * Est-ce que XXX peut YYY ? (XXX est un objet, YYY est une action) #r_agent-1
  *
  * Est-ce que XXX possède YYY ? (XXX est un objet, YYY est un objet) #r_own
  */
 module.exports = {
-    getRelation: function (phrase){
+    getRelation: function (phrase) {
         phrase = check(phrase);
-        let regex = new RegExp("Est-ce que ");
-        let check_question = regex.exec(phrase);
-        if(check_question == null) {
+        const regex = new RegExp("Est-ce que ");
+        const check_question = regex.exec(phrase);
+        if (check_question == null) {
             console.error(new Error("Phrase pas de la forme : \"Est-ce que ....\""));
         } else {
-            let X_Y = phrase.replace('Est-ce que ', '');
+            const X_Y = phrase.replace('Est-ce que ', '');
 
-            let lieu = " se trouve dans ";
-            let agent = " peut ";
-            let own = " possède ";
-            let isA = " est lié à ";
-            let carac = " est ";
+            const lieu = " se trouve dans ";
+            const agent = " peut ";
+            const own = " possède ";
+            const isA = " est lié à ";
+            const carac = " est ";
 
-            if(X_Y.split(lieu)[1] != undefined){
-                let o = gkw.analyse(X_Y.split(lieu)[0]);
-                let r = gkw.analyse(X_Y.split(lieu)[1]);
-                var res = {
-                    object : o,
-                    typeRelation : "r_lieu",
-                    relation : r
-                };
-                return res;
-            }else if(X_Y.split(agent)[1] != undefined){
-                let o = gkw.analyse(X_Y.split(agent)[0]);
-                let r = gkw.analyse(X_Y.split(agent)[1]);
-                var res = {
-                    object : o,
-                    typeRelation : "r_agent",
-                    relation : r
-                };
-                return res;
-            }else if(X_Y.split(own)[1] != undefined){
-                let o = gkw.analyse(X_Y.split(own)[0]);
-                let r = gkw.analyse(X_Y.split(own)[1]);
-                var res = {
-                    object : o,
-                    typeRelation : "r_own",
-                    relation : r
-                };
-                return res;
-            }else if(X_Y.split(isA)[1] != undefined){
-                let o = gkw.analyse(X_Y.split(isA)[0]);
-                let r = gkw.analyse(X_Y.split(isA)[1]);
-                var res = {
-                    object : o,
-                    typeRelation : "r_isa",
-                    relation : r
-                };
-                return res;
-            }else if(X_Y.split(carac)[1] != undefined){
-                let o = gkw.analyse(X_Y.split(carac)[0]);
-                let r = gkw.analyse(X_Y.split(carac)[1]);
-                var res = {
-                    object : o,
-                    typeRelation : "r_carac",
-                    relation : r
-                };
-                return res;
-            }else{
+            if (X_Y.split(lieu)[1] !== undefined) {
+                return getRelationObject(lieu, X_Y, 'r_lieu');
+            } else if (X_Y.split(agent)[1] !== undefined) {
+                return getRelationObject(agent, X_Y, 'r_agent');
+            } else if (X_Y.split(own)[1] !== undefined) {
+                return getRelationObject(own, X_Y, 'r_own');
+            } else if (X_Y.split(isA)[1] !== undefined) {
+                return getRelationObject(isA, X_Y, 'r_isa');
+            } else if (X_Y.split(carac)[1] !== undefined) {
+                return getRelationObject(carac, X_Y, 'r_carac');
+            } else {
                 console.error(new Error("\"XXX typeRelation YYY\" undefined."));
             }
         }
