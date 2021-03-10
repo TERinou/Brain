@@ -8,9 +8,9 @@ function check(phrase) {
 
 function getRelationObject(relationStr, X_Y, relationType) {
     return {
-        object: gkw.analyse(X_Y.split(relationStr)[0]),
-        typeRelation: relationType,
-        relation: gkw.analyse(X_Y.split(relationStr)[1])
+        word : gkw.analyse(X_Y.split(relationStr)[0]),
+        type : relationType,
+        relatedTo : gkw.analyse(X_Y.split(relationStr)[1])
     };
 }
 

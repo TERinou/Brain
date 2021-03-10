@@ -110,7 +110,7 @@ module.exports = {
         let mot = "undefined";
         if(keyWords.length > 0){
             // A modif selon les problèmes lors des tests de Thominou
-            mot = keyWords;
+            mot = keyWords.pop();
         }
 
         return mot;
