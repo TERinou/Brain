@@ -10,9 +10,9 @@ const ext = require('./functions/extract');
 //console.log(gkw.analyse("Est-ce que les carotte est un légume ?"));
 
 module.exports = {
-  getToken: gkw.getToken,
-  getPosTag: gkw.getPosTag,
-  getLemmas: gkw.getLemmas,
-  getKeyWord: gkw.getKeyWord,
-  getRelation: ext.getRelation
+    getToken: gkw.getToken,
+    getPosTag: gkw.getPosTag,
+    getLemmas: gkw.getLemmas,
+    getKeyWord: gkw.getKeyWord,
+    getRelation: ext.getRelation
 };

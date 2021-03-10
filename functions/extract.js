@@ -16,7 +16,7 @@ function check(phrase){
  *
  * Est-ce que XXX se trouve dans YYY ? (XXX est un objet, YYY est un lieu) #r_lieu
  *
- * Est-ce que XXX peut YYY ? (XXX est un objet, YYY est une action) #r_agent-1
+ * Est-ce que XXX peut YYY ? (XXX est un objet, YYY est une action) #r_agent
  *
  * Est-ce que XXX possède YYY ? (XXX est un objet, YYY est un objet) #r_own
  */
@@ -50,7 +50,7 @@ module.exports = {
                 let r = gkw.analyse(X_Y.split(agent)[1]);
                 var res = {
                     object : o,
-                    typeRelation : "r_agent-1",
+                    typeRelation : "r_agent",
                     relation : r
                 };
                 return res;
