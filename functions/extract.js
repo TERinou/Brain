@@ -42,6 +42,10 @@ module.exports = {
             const own = " possède ";
             const isA = " est lié à ";
             const carac = " est ";
+            const color = " a pour couleur ";
+            const but = " a pour but ";
+            const conseq = " est une conséquence de ";
+            const make = " peut fabriquer ";
 
             if (X_Y.split(lieu)[1] !== undefined) {
                 return getRelationObject(lieu, X_Y, 'r_lieu');
@@ -53,9 +57,31 @@ module.exports = {
                 return getRelationObject(isA, X_Y, 'r_isa');
             } else if (X_Y.split(carac)[1] !== undefined) {
                 return getRelationObject(carac, X_Y, 'r_carac');
+            } else if (X_Y.split(color)[1] !== undefined) {
+                return getRelationObject(color, X_Y, 'r_color');
+            } else if (X_Y.split(but)[1] !== undefined) {
+                return getRelationObject(but, X_Y, 'r_but');
+            } else if (X_Y.split(conseq)[1] !== undefined) {
+                return getRelationObject(conseq, X_Y, 'r_conseq');
+            } else if (X_Y.split(make)[1] !== undefined) {
+                return getRelationObject(make, X_Y, 'r_make');
             } else {
                 console.error(new Error("\"XXX typeRelation YYY\" undefined."));
             }
         }
+    },
+
+    listRelation: function () {
+        const relations = [];
+        relations.push("r_isa : 'r_isa'");
+        relations.push("r_carac : 'r_carac'");
+        relations.push("r_lieu : 'r_lieu'");
+        relations.push("r_agent : 'r_agent'");
+        relations.push("r_own : 'r_own'");
+        relations.push("r_color : 'r_color'");
+        relations.push("r_but : 'r_but'");
+        relations.push("r_conseq : 'r_conseq'");
+        relations.push("r_make : 'r_make'");
+        return relations;
     }
 }
