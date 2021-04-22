@@ -71,6 +71,9 @@ module.exports = {
         }
     },
 
+    /**
+     * Return listes des relations renvoyable par getRelation
+     */
     listRelation: function () {
         const relations = [];
         relations.push("r_isa : 'r_isa'");
