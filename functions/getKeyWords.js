@@ -63,17 +63,56 @@ module.exports = {
      * @param phrase
      * @returns mot clef
      */
-    getKeyWord: function (phrase){
+    getKeyWord: function (phrase) {
         let keyWords = [];
 
         let posTaggedWords = this.getPosTag(phrase);
 
-        posTaggedWords.forEach(function (item, index, array){
-            if(item.pos.includes("NOM")){
+        posTaggedWords.forEach(function (item, index, array) {
+            if (item.pos.includes("NOM")) {
                 keyWords.push(item.word);
             }
         });
 
-        return keyWords.pop();
+        let tag = this.getLemmas(keyWords.pop());
+        let res = "";
+        tag.forEach(function (item, index, array) {
+            res = item.lemma;
+        })
+
+        return res;
+    },
+    analyse: function (phrase){
+        let keyWords = [];
+
+        let posTaggedWords = this.getPosTag(phrase);
+
+        let regex = new RegExp("ART:[a-zA-Z]*");
+        let regex2 = new RegExp("PRO:[a-zA-Z]*");
+
+        posTaggedWords.forEach(function (item, index, array){
+            let tmp = 1;
+            item.pos.forEach(function (type, index, array){
+                let check_type = regex.exec(type);
+                let check_type2 = regex2.exec(type);
+                if(check_type != null){
+                    tmp = 0;
+                }
+                if(check_type2 != null){
+                    tmp = 0;
+                }
+            });
+            if(tmp == 1){
+                keyWords.push(item.word);
+            }
+        });
+
+        let mot = "undefined";
+        if(keyWords.length > 0){
+            // A modif selon les problèmes lors des tests de Thominou
+            mot = keyWords.pop();
+        }
+
+        return mot;
     }
 }
