@@ -75,16 +75,15 @@ module.exports = {
      * Return listes des relations renvoyable par getRelation
      */
     listRelation: function () {
-        const relations = [];
-        relations.push("r_isa : 'r_isa'");
-        relations.push("r_carac : 'r_carac'");
-        relations.push("r_lieu : 'r_lieu'");
-        relations.push("r_agent : 'r_agent'");
-        relations.push("r_own : 'r_own'");
-        relations.push("r_color : 'r_color'");
-        relations.push("r_but : 'r_but'");
-        relations.push("r_conseq : 'r_conseq'");
-        relations.push("r_make : 'r_make'");
-        return relations;
+        return [
+            {r_isa : 'r_isa'},
+            {r_carac : 'r_carac'},
+            {r_lieu : 'r_lieu'},
+            {r_agent : 'r_agent'},
+            {r_own : 'r_own'},
+            {r_color : 'r_color'},
+            {r_but : 'r_but'},
+            {r_conseq : 'r_conseq'},
+            {r_make : 'r_make'}];
     }
 }
