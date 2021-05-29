@@ -75,15 +75,15 @@ module.exports = {
      * Return listes des relations renvoyable par getRelation
      */
     listRelation: function () {
-        return [
-            {r_isa : 'r_isa'},
-            {r_carac : 'r_carac'},
-            {r_lieu : 'r_lieu'},
-            {r_agent : 'r_agent'},
-            {r_own : 'r_own'},
-            {r_color : 'r_color'},
-            {r_but : 'r_but'},
-            {r_conseq : 'r_conseq'},
-            {r_make : 'r_make'}];
+        return {
+            r_isa : 'r_isa',
+            r_carac : 'r_carac',
+            r_lieu : 'r_lieu',
+            r_agent : 'r_agent',
+            r_own : 'r_own',
+            r_color : 'r_color',
+            r_but : 'r_but',
+            r_conseq : 'r_conseq',
+            r_make : 'r_make'};
     }
 }
